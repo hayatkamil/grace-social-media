@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>GRACE Embryology — Social Media Report · April–May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0a0d12;--surface:#111520;--surface2:#161c2b;--border:#1e2a40;
+  --green:#00e5a0;--green2:#00c882;--green-dim:rgba(0,229,160,.08);--tag-bg:rgba(0,229,160,.1);--tag-border:rgba(0,229,160,.25);
+  --blue:#4a9eff;--blue-dim:rgba(74,158,255,.08);--blue-border:rgba(74,158,255,.25);
+  --purple:#a78bfa;--purple-dim:rgba(167,139,250,.08);--purple-border:rgba(167,139,250,.25);
+  --orange:#fb923c;--orange-dim:rgba(251,146,60,.08);--orange-border:rgba(251,146,60,.25);
+  --pink:#f472b6;--pink-dim:rgba(244,114,182,.08);--pink-border:rgba(244,114,182,.25);
+  --gold:#f0c060;--text:#e8edf5;--muted:#6b7a96;--muted2:#8b9ab5;--white:#fff;--radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0a0d12 0%,#0d1020 55%,#080a18 100%);border-bottom:1px solid var(--border);padding:44px 24px 36px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.07) 0%,transparent 70%);top:-130px;right:-70px;pointer-events:none;}
+.hero::after{content:'';position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(74,158,255,.05) 0%,transparent 70%);bottom:-80px;left:-50px;pointer-events:none;}
+.hero-in{max-width:960px;margin:0 auto;}
+.hbadge{display:inline-flex;align-items:center;gap:6px;background:var(--purple-dim);border:1px solid var(--purple-border);border-radius:20px;padding:4px 14px;font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--purple);text-transform:uppercase;margin-bottom:14px;}
+.hbadge .dot{width:6px;height:6px;border-radius:50%;background:var(--purple);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hagency{font-size:11px;font-weight:600;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:6px;}
+.htitle{font-size:clamp(26px,5vw,44px);font-weight:800;color:var(--white);line-height:1.1;margin-bottom:4px;}
+.htitle .g{color:var(--purple);}
+.hsub{font-size:13px;color:var(--muted2);margin-bottom:22px;}
+
+/* PLATFORM PILLS */
+.plat-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+.plat-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:10px;font-size:11px;font-weight:600;border:1px solid;}
+.plat-pill.fb{background:rgba(24,119,242,.1);border-color:rgba(24,119,242,.3);color:#4a90f0;}
+.plat-pill.ig{background:rgba(228,64,95,.1);border-color:rgba(228,64,95,.3);color:#f06292;}
+.plat-pill.li{background:rgba(10,102,194,.1);border-color:rgba(10,102,194,.3);color:#5ba4d4;}
+.plat-pill.yt{background:rgba(255,0,0,.1);border-color:rgba(255,0,0,.25);color:#ff6b6b;}
+.plat-pill.tw{background:rgba(29,161,242,.1);border-color:rgba(29,161,242,.3);color:#5bc8f5;}
+.plat-pill.gmb{background:rgba(52,168,83,.1);border-color:rgba(52,168,83,.3);color:#4caf50;}
+.plat-pill .ico{font-size:15px;}
+
+/* BIG STATS */
+.big-stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:22px;}
+.bstat{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 10px;text-align:center;}
+.bstat .n{font-size:26px;font-weight:800;font-family:'DM Mono',monospace;line-height:1;margin-bottom:4px;}
+.bstat .n.g{color:var(--green);}
+.bstat .n.b{color:var(--blue);}
+.bstat .n.p{color:var(--purple);}
+.bstat .n.o{color:var(--orange);}
+.bstat .n.pk{color:var(--pink);}
+.bstat .l{font-size:10px;color:var(--muted);letter-spacing:.04em;}
+
+.hfoot{font-size:11px;color:var(--muted);}
+.hfoot strong{color:var(--purple);}
+
+/* TOC */
+.toc-wrap{background:var(--surface);border-bottom:1px solid var(--border);padding:11px 20px;position:sticky;top:0;z-index:100;}
+.toc-in{max-width:960px;margin:0 auto;overflow-x:auto;white-space:nowrap;scrollbar-width:none;}
+.toc-in::-webkit-scrollbar{display:none;}
+.toc-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-right:8px;}
+.toc-in a{display:inline-block;font-size:11px;font-weight:500;background:var(--surface2);border:1px solid var(--border);border-radius:20px;padding:4px 12px;margin-right:5px;color:var(--muted2);text-decoration:none;transition:all .18s;}
+.toc-in a:hover{background:var(--purple-dim);border-color:var(--purple-border);color:var(--purple);}
+
+/* MAIN */
+.main{max-width:960px;margin:0 auto;padding:0 16px 60px;}
+
+/* SECTION */
+.section{margin:40px 0 0;scroll-margin-top:66px;}
+.sec-hdr{display:flex;align-items:center;gap:13px;background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--purple);border-radius:var(--radius);padding:13px 16px;margin-bottom:14px;}
+.sec-hdr.blue{border-left-color:var(--blue);}
+.sec-hdr.green{border-left-color:var(--green);}
+.sec-hdr.orange{border-left-color:var(--orange);}
+.sec-hdr.pink{border-left-color:var(--pink);}
+.sec-ico{width:36px;height:36px;border-radius:8px;background:var(--purple-dim);border:1px solid var(--purple-border);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.sec-ico.blue{background:var(--blue-dim);border-color:var(--blue-border);}
+.sec-ico.green{background:var(--green-dim);border-color:var(--tag-border);}
+.sec-ico.orange{background:var(--orange-dim);border-color:var(--orange-border);}
+.sec-ico.pink{background:var(--pink-dim);border-color:var(--pink-border);}
+.sec-ttl{font-size:14px;font-weight:700;color:var(--white);}
+.sec-sub2{font-size:11px;color:var(--muted2);margin-top:1px;}
+.sec-cnt{margin-left:auto;flex-shrink:0;background:var(--purple-dim);border:1px solid var(--purple-border);border-radius:20px;padding:3px 12px;font-size:11px;font-weight:700;color:var(--purple);font-family:'DM Mono',monospace;white-space:nowrap;}
+.sec-cnt.green{background:var(--green-dim);border-color:var(--tag-border);color:var(--green);}
+.sec-cnt.blue{background:var(--blue-dim);border-color:var(--blue-border);color:var(--blue);}
+.sec-cnt.orange{background:var(--orange-dim);border-color:var(--orange-border);color:var(--orange);}
+
+/* INSIGHT CARDS */
+.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
+.ins-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;}
+.ins-card .t{font-size:10px;color:var(--muted);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;}
+.ins-row{display:flex;align-items:center;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.04);}
+.ins-row:last-child{border-bottom:none;}
+.ins-row .k{font-size:12px;color:var(--muted2);}
+.ins-row .v{font-size:12px;font-weight:700;font-family:'DM Mono',monospace;color:var(--white);}
+.ins-row .bar-wrap{flex:1;margin:0 10px;height:4px;background:var(--border);border-radius:4px;overflow:hidden;}
+.ins-row .bar{height:100%;background:var(--purple);border-radius:4px;}
+.ins-row .bar.blue{background:var(--blue);}
+.ins-row .bar.green{background:var(--green);}
+.ins-row .bar.orange{background:var(--orange);}
+.ins-row .bar.pink{background:var(--pink);}
+
+/* POST TABLE */
+.post-table{width:100%;border-collapse:collapse;font-size:12px;}
+.post-table thead tr{background:var(--surface2);}
+.post-table th{padding:9px 10px;font-size:10px;font-weight:600;color:var(--muted2);text-align:left;letter-spacing:.05em;text-transform:uppercase;border-bottom:1px solid var(--border);}
+.post-table td{padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;}
+.post-table tr:hover td{background:rgba(255,255,255,.02);}
+.post-table .num{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);width:32px;}
+.post-table .date-cell{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted2);white-space:nowrap;}
+.post-table .title-cell{font-weight:600;color:var(--white);font-size:12px;max-width:240px;}
+.post-table .cat-cell{font-size:11px;color:var(--muted2);}
+.post-table .slides-cell{font-size:10px;color:var(--muted);font-family:'DM Mono',monospace;}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;gap:3px;border-radius:20px;padding:2px 8px;font-size:10px;font-weight:600;white-space:nowrap;}
+.badge.live{background:var(--green-dim);border:1px solid var(--tag-border);color:var(--green);}
+.badge.sched{background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);}
+.badge.approval{background:var(--orange-dim);border:1px solid var(--orange-border);color:var(--orange);}
+.badge.brand{background:var(--purple-dim);border:1px solid var(--purple-border);color:var(--purple);}
+.badge.career{background:rgba(251,146,60,.1);border:1px solid var(--orange-border);color:var(--orange);}
+.badge.edu{background:var(--blue-dim);border:1px solid var(--blue-border);color:var(--blue);}
+.badge.festival{background:rgba(244,114,182,.1);border:1px solid var(--pink-border);color:var(--pink);}
+
+/* PLATFORM GRID */
+.plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
+.plat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-align:center;}
+.plat-card .ico{font-size:28px;margin-bottom:8px;}
+.plat-card .name{font-size:12px;font-weight:700;color:var(--white);margin-bottom:4px;}
+.plat-card .count{font-size:22px;font-weight:800;font-family:'DM Mono',monospace;margin-bottom:2px;}
+.plat-card .sub{font-size:10px;color:var(--muted);}
+.plat-card.fb .count{color:#4a90f0;}
+.plat-card.ig .count{color:#f06292;}
+.plat-card.li .count{color:#5ba4d4;}
+.plat-card.yt .count{color:#ff6b6b;}
+.plat-card.tw .count{color:#5bc8f5;}
+.plat-card.gmb .count{color:#4caf50;}
+
+/* CALENDAR STRIP */
+.cal-strip{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.cal-day{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:8px 10px;text-align:center;min-width:56px;}
+.cal-day .d{font-size:18px;font-weight:800;font-family:'DM Mono',monospace;line-height:1;}
+.cal-day .m{font-size:9px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px;}
+.cal-day .dot-row{display:flex;gap:2px;justify-content:center;margin-top:4px;}
+.cal-day .dot{width:5px;height:5px;border-radius:50%;}
+.cal-day.live .d{color:var(--green);}
+.cal-day.live{border-color:rgba(0,229,160,.2);background:rgba(0,229,160,.04);}
+.cal-day.sched .d{color:var(--blue);}
+.cal-day.sched{border-color:rgba(74,158,255,.2);background:rgba(74,158,255,.04);}
+.cal-day.both .d{color:var(--purple);}
+.cal-day.both{border-color:rgba(167,139,250,.2);background:rgba(167,139,250,.04);}
+.cal-day.approval .d{color:var(--orange);}
+.cal-day.approval{border-color:rgba(251,146,60,.2);background:rgba(251,146,60,.04);}
+
+hr.sdiv{border:none;border-top:1px solid var(--border);margin:40px 0 0;}
+
+/* FOOTER */
+.rep-footer{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:18px;margin-top:40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.fl{font-size:12px;color:var(--muted);}
+.fl strong{color:var(--purple);font-size:13px;}
+.fstamp{background:var(--purple-dim);border:1.5px solid var(--purple-border);border-radius:8px;padding:8px 16px;font-size:12px;font-weight:700;color:var(--purple);}
+
+@media(max-width:600px){
+  .big-stats{grid-template-columns:repeat(3,1fr);}
+  .insight-grid{grid-template-columns:1fr;}
+  .plat-grid{grid-template-columns:repeat(2,1fr);}
+  .hero{padding:28px 14px 22px;}
+  .main{padding:0 12px 44px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HERO ══════════════ -->
+<div class="hero">
+  <div class="hero-in">
+    <div class="hbadge"><span class="dot"></span>Social Media Content Report · April–May 2026</div>
+    <div class="hagency">Digital Ocean Web &nbsp;·&nbsp; Social Media Report</div>
+    <div class="htitle">GRACE <span class="g">Embryology</span></div>
+    <div class="hsub">Social Media Content Plan — Facebook · Instagram · LinkedIn · YouTube · Twitter · GMB</div>
+
+    <div class="plat-row">
+      <div class="plat-pill fb"><span class="ico">📘</span>Facebook</div>
+      <div class="plat-pill ig"><span class="ico">📸</span>Instagram</div>
+      <div class="plat-pill li"><span class="ico">💼</span>LinkedIn</div>
+      <div class="plat-pill yt"><span class="ico">▶️</span>YouTube</div>
+      <div class="plat-pill tw"><span class="ico">🐦</span>Twitter / X</div>
+      <div class="plat-pill gmb"><span class="ico">📍</span>Google My Business</div>
+    </div>
+
+    <div class="big-stats">
+      <div class="bstat"><div class="n p">33</div><div class="l">Total Posts</div></div>
+      <div class="bstat"><div class="n g">18</div><div class="l">Live / Used</div></div>
+      <div class="bstat"><div class="n b">14</div><div class="l">Scheduled</div></div>
+      <div class="bstat"><div class="n o">1</div><div class="l">Pending Approval</div></div>
+      <div class="bstat"><div class="n pk">6</div><div class="l">Platforms</div></div>
+    </div>
+
+    <div class="hfoot">Prepared by &nbsp;<strong>Digital Ocean Web</strong>&nbsp; · graceembryology.com · April–May 2026</div>
+  </div>
+</div>
+
+<!-- ══════════════ TOC ══════════════ -->
+<div class="toc-wrap">
+  <div class="toc-in">
+    <span class="toc-lbl">Sections ↓</span>
+    <a href="#overview">Overview</a>
+    <a href="#platforms">Platform Summary</a>
+    <a href="#april-posts">April Posts (18)</a>
+    <a href="#may-posts">May Posts (15)</a>
+    <a href="#category-breakdown">Category Breakdown</a>
+    <a href="#all-captions">All Captions & Slides</a>
+  </div>
+</div>
+
+<div class="main">
+
+<!-- ══════════════ OVERVIEW ══════════════ -->
+<div class="section" id="overview">
+  <div class="sec-hdr">
+    <div class="sec-ico">📊</div>
+    <div><div class="sec-ttl">Content Overview — April & May 2026</div><div class="sec-sub2">All posts planned across 6 social platforms</div></div>
+    <div class="sec-cnt">33 Total Posts</div>
+  </div>
+
+  <div class="insight-grid">
+    <div class="ins-card">
+      <div class="t">Post Status Split</div>
+      <div class="ins-row"><span class="k">Live / Published</span><div class="bar-wrap"><div class="bar green" style="width:55%"></div></div><span class="v" style="color:var(--green)">18</span></div>
+      <div class="ins-row"><span class="k">Scheduled</span><div class="bar-wrap"><div class="bar blue" style="width:42%"></div></div><span class="v" style="color:var(--blue)">14</span></div>
+      <div class="ins-row"><span class="k">Pending Approval</span><div class="bar-wrap"><div class="bar orange" style="width:3%"></div></div><span class="v" style="color:var(--orange)">1</span></div>
+    </div>
+    <div class="ins-card">
+      <div class="t">Month Distribution</div>
+      <div class="ins-row"><span class="k">April 2026</span><div class="bar-wrap"><div class="bar" style="width:55%"></div></div><span class="v">18</span></div>
+      <div class="ins-row"><span class="k">May 2026</span><div class="bar-wrap"><div class="bar blue" style="width:42%"></div></div><span class="v" style="color:var(--blue)">14</span></div>
+      <div class="ins-row"><span class="k">March 2026</span><div class="bar-wrap"><div class="bar orange" style="width:3%"></div></div><span class="v" style="color:var(--orange)">1</span></div>
+    </div>
+    <div class="ins-card">
+      <div class="t">Content Categories</div>
+      <div class="ins-row"><span class="k">Career & Opportunities</span><div class="bar-wrap"><div class="bar orange" style="width:100%"></div></div><span class="v" style="color:var(--orange)">12</span></div>
+      <div class="ins-row"><span class="k">Educational / Concepts</span><div class="bar-wrap"><div class="bar blue" style="width:75%"></div></div><span class="v" style="color:var(--blue)">9</span></div>
+      <div class="ins-row"><span class="k">Brand / Institute</span><div class="bar-wrap"><div class="bar" style="width:42%"></div></div><span class="v">5</span></div>
+      <div class="ins-row"><span class="k">Courses & Eligibility</span><div class="bar-wrap"><div class="bar pink" style="width:25%"></div></div><span class="v" style="color:var(--pink)">3</span></div>
+      <div class="ins-row"><span class="k">Festival / Special Days</span><div class="bar-wrap"><div class="bar orange" style="width:17%"></div></div><span class="v" style="color:var(--orange)">2</span></div>
+    </div>
+    <div class="ins-card">
+      <div class="t">Avg. Slides Per Post</div>
+      <div class="ins-row"><span class="k">6-slide carousels</span><div class="bar-wrap"><div class="bar" style="width:90%"></div></div><span class="v">28</span></div>
+      <div class="ins-row"><span class="k">4-5 slide posts</span><div class="bar-wrap"><div class="bar blue" style="width:15%"></div></div><span class="v" style="color:var(--blue)">5</span></div>
+    </div>
+    <div class="ins-card">
+      <div class="t">Posting Frequency</div>
+      <div class="ins-row"><span class="k">April (30 days)</span><div class="bar-wrap"><div class="bar green" style="width:100%"></div></div><span class="v" style="color:var(--green)">~2/week</span></div>
+      <div class="ins-row"><span class="k">May (31 days)</span><div class="bar-wrap"><div class="bar blue" style="width:90%"></div></div><span class="v" style="color:var(--blue)">2–3/week</span></div>
+    </div>
+    <div class="ins-card">
+      <div class="t">Top Hashtag Themes</div>
+      <div class="ins-row"><span class="k">#GraceEmbryology</span><div class="bar-wrap"><div class="bar" style="width:100%"></div></div><span class="v">33</span></div>
+      <div class="ins-row"><span class="k">#ClinicalEmbryology</span><div class="bar-wrap"><div class="bar" style="width:100%"></div></div><span class="v">33</span></div>
+      <div class="ins-row"><span class="k">#IVFTraining</span><div class="bar-wrap"><div class="bar blue" style="width:85%"></div></div><span class="v" style="color:var(--blue)">28</span></div>
+      <div class="ins-row"><span class="k">#EmbryologyCareer</span><div class="bar-wrap"><div class="bar orange" style="width:70%"></div></div><span class="v" style="color:var(--orange)">23</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ PLATFORM SUMMARY ══════════════ -->
+<hr class="sdiv"/>
+<div class="section" id="platforms">
+  <div class="sec-hdr pink">
+    <div class="sec-ico pink">📱</div>
+    <div><div class="sec-ttl">Platform Distribution — All 6 Platforms</div><div class="sec-sub2">Same content posted across all platforms for maximum reach</div></div>
+    <div class="sec-cnt" style="background:var(--pink-dim);border-color:var(--pink-border);color:var(--pink);">6 Platforms</div>
+  </div>
+  <div class="plat-grid">
+    <div class="plat-card fb">
+      <div class="ico">📘</div>
+      <div class="name">Facebook</div>
+      <div class="count">33</div>
+      <div class="sub">Posts (Carousel + Caption)</div>
+    </div>
+    <div class="plat-card ig">
+      <div class="ico">📸</div>
+      <div class="name">Instagram</div>
+      <div class="count">33</div>
+      <div class="sub">Posts (Carousel + Caption)</div>
+    </div>
+    <div class="plat-card li">
+      <div class="ico">💼</div>
+      <div class="name">LinkedIn</div>
+      <div class="count">33</div>
+      <div class="sub">Posts (Professional Caption)</div>
+    </div>
+    <div class="plat-card yt">
+      <div class="ico">▶️</div>
+      <div class="name">YouTube</div>
+      <div class="count">33</div>
+      <div class="sub">Community Posts / Shorts</div>
+    </div>
+    <div class="plat-card tw">
+      <div class="ico">🐦</div>
+      <div class="name">Twitter / X</div>
+      <div class="count">33</div>
+      <div class="sub">Posts (Thread / Image)</div>
+    </div>
+    <div class="plat-card gmb">
+      <div class="ico">📍</div>
+      <div class="name">Google My Business</div>
+      <div class="count">33</div>
+      <div class="sub">Business Posts (Updates)</div>
+    </div>
+  </div>
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:10px;">📌 Platform Strategy Note</div>
+    <div style="font-size:12px;color:var(--muted2);line-height:1.8;">
+      ✦ <strong style="color:var(--white)">Facebook & Instagram</strong> — Primary platforms for carousel posts with full slide decks and captions with hashtags.<br>
+      ✦ <strong style="color:var(--blue)">LinkedIn</strong> — Professional audience targeting; same caption formatted for professional tone.<br>
+      ✦ <strong style="color:var(--pink)">YouTube</strong> — Community posts and short-form vertical content based on carousel slides.<br>
+      ✦ <strong style="color:var(--green)">Twitter / X</strong> — Condensed caption threads with image attachment for engagement.<br>
+      ✦ <strong style="color:var(--orange)">Google My Business</strong> — Update posts for local SEO and course inquiries.
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════ APRIL POSTS ══════════════ -->
+<hr class="sdiv"/>
+<div class="section" id="april-posts">
+  <div class="sec-hdr green">
+    <div class="sec-ico green">✅</div>
+    <div><div class="sec-ttl">April 2026 — Published Posts</div><div class="sec-sub2">All posts live across Facebook, Instagram, LinkedIn, YouTube, Twitter & GMB</div></div>
+    <div class="sec-cnt green">18 Posts</div>
+  </div>
+
+
+
+  <div style="overflow-x:auto;">
+  <table class="post-table">
+    <thead><tr>
+      <th>#</th><th>Date</th><th>Post Title</th><th>Category</th><th>Slides</th><th>Platforms</th><th>Status</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="num">001</td><td class="date-cell">Apr 01</td><td class="title-cell">Welcome to Grace Embryology Institute</td><td><span class="badge brand">Brand</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">002</td><td class="date-cell">Apr 01</td><td class="title-cell">Embryology Courses at Grace: Complete Overview</td><td><span class="badge brand">Brand</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">003</td><td class="date-cell">Apr 06</td><td class="title-cell">Why Choose Embryology as a Career?</td><td><span class="badge career">Career</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">004</td><td class="date-cell">Apr 08</td><td class="title-cell">Why Choose Grace for Study of Embryology</td><td><span class="badge brand">Brand</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">005</td><td class="date-cell">Apr 10</td><td class="title-cell">Why Practical Training Matters in Embryology Courses</td><td><span class="badge brand">Brand</span></td><td class="slides-cell">4 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">006</td><td class="date-cell">Apr 12</td><td class="title-cell">Embryology vs Other Allied Health Careers: Key Differences</td><td><span class="badge career">Career</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">007</td><td class="date-cell">Apr 14</td><td class="title-cell">What Exactly Does an Embryologist Do in Daily Practice?</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">008</td><td class="date-cell">Apr 14</td><td class="title-cell">Dr. Ambedkar Jayanti</td><td><span class="badge festival">Festival</span></td><td class="slides-cell">1 slide</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">009</td><td class="date-cell">Apr 18</td><td class="title-cell">Embryology Career Myth vs Reality: What Students Should Know</td><td><span class="badge career">Career</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">010</td><td class="date-cell">Apr 18</td><td class="title-cell">Embryology as a Career for Biology Students: Is It the Right Choice?</td><td><span class="badge career">Career</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">011</td><td class="date-cell">Apr 20</td><td class="title-cell">Why Embryology Is a Future-Focused Healthcare Profession</td><td><span class="badge career">Career</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">012</td><td class="date-cell">Apr 22</td><td class="title-cell">Career Opportunities in Embryology</td><td><span class="badge career">Career</span></td><td class="slides-cell">5 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">013</td><td class="date-cell">Apr 24</td><td class="title-cell">Who Can Apply for Embryology Courses?</td><td><span class="badge brand">Courses</span></td><td class="slides-cell">5 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">014</td><td class="date-cell">Apr 26</td><td class="title-cell">Embryology Introduction: How Life Begins at the Cellular Level</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">015</td><td class="date-cell">Apr 28</td><td class="title-cell">What Makes Embryology Different from Traditional Medical Careers?</td><td><span class="badge career">Career</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr><td class="num">016</td><td class="date-cell">Apr 30</td><td class="title-cell">How Embryology Contributes to Parenthood and Fertility Care</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">5 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+      <tr style="background:rgba(251,146,60,.03);"><td class="num">017</td><td class="date-cell">Mar 26</td><td class="title-cell">Ram Navami — Festival Post</td><td><span class="badge festival">Festival</span></td><td class="slides-cell">1 slide</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge approval">⏳ Approval</span></td></tr>
+      <tr><td class="num">018</td><td class="date-cell">May 04</td><td class="title-cell">Embryology Concept: What Is a Cell Cycle and Why It Matters?</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge live">✓ Live</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ══════════════ MAY POSTS ══════════════ -->
+<hr class="sdiv"/>
+<div class="section" id="may-posts">
+  <div class="sec-hdr blue">
+    <div class="sec-ico blue">🗓️</div>
+    <div><div class="sec-ttl">May 2026 — Scheduled Posts</div><div class="sec-sub2">Content scheduled and ready to publish across all platforms</div></div>
+    <div class="sec-cnt blue">14 Posts</div>
+  </div>
+
+
+
+  <div style="overflow-x:auto;">
+  <table class="post-table">
+    <thead><tr>
+      <th>#</th><th>Date</th><th>Post Title</th><th>Category</th><th>Slides</th><th>Platforms</th><th>Status</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="num">019</td><td class="date-cell">May 07</td><td class="title-cell">Embryology Field Overview: Science, Technology &amp; Medicine Together</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">020</td><td class="date-cell">May 09</td><td class="title-cell">Embryology Concept: How Cells Communicate During Development</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">021</td><td class="date-cell">May 11</td><td class="title-cell">Embryology in Modern Healthcare: Why It's More Important Than Ever</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">022</td><td class="date-cell">May 13</td><td class="title-cell">Embryology Science: Understanding Cell Differentiation</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">5 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">023</td><td class="date-cell">May 15</td><td class="title-cell">Embryology Course Duration &amp; Eligibility Explained Clearly</td><td><span class="badge brand">Courses</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">024</td><td class="date-cell">May 17</td><td class="title-cell">Embryology Salary in India: What Can You Expect After Training?</td><td><span class="badge career">Career</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">025</td><td class="date-cell">May 19</td><td class="title-cell">Private vs Government Jobs in Embryology: What to Choose?</td><td><span class="badge career">Career</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">026</td><td class="date-cell">May 21</td><td class="title-cell">Is Embryology a Stressful Career? Honest Reality of the Profession</td><td><span class="badge career">Career</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">027</td><td class="date-cell">May 23</td><td class="title-cell">Embryology Basics: Structure of a Human Cell Explained Simply</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">028</td><td class="date-cell">May 25</td><td class="title-cell">Top Skills That Make You Stand Out in Embryology Interviews</td><td><span class="badge career">Career</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">029</td><td class="date-cell">May 27</td><td class="title-cell">Embryology Concept: Cytoplasm, Nucleus &amp; Cell Organelles Explained</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">030</td><td class="date-cell">May 29</td><td class="title-cell">Embryology and DNA: How Genetic Material Controls Development</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">031</td><td class="date-cell">May 30</td><td class="title-cell">Embryology Explained: Haploid vs Diploid Cells</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+      <tr><td class="num">032</td><td class="date-cell">May 31</td><td class="title-cell">Embryology Concept: What Is Oogenesis and How It Works?</td><td><span class="badge edu">Educational</span></td><td class="slides-cell">6 slides</td><td style="font-size:10px;color:var(--muted2);">FB · IG · LI · YT · TW · GMB</td><td><span class="badge sched">🕐 Scheduled</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+
+<!-- ══════════════ CATEGORY BREAKDOWN ══════════════ -->
+<hr class="sdiv"/>
+<div class="section" id="category-breakdown">
+  <div class="sec-hdr orange">
+    <div class="sec-ico orange">🏷️</div>
+    <div><div class="sec-ttl">Content Category Breakdown</div><div class="sec-sub2">Distribution of post topics across the content plan</div></div>
+    <div class="sec-cnt orange">5 Categories</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:10px;">Post Category Distribution</div>
+      <div class="ins-row"><span class="k">Career & Opportunities</span><div class="bar-wrap"><div class="bar orange" style="width:100%"></div></div><span class="v" style="color:var(--orange)">12</span></div>
+      <div class="ins-row"><span class="k">Educational / Science Concepts</span><div class="bar-wrap"><div class="bar blue" style="width:75%"></div></div><span class="v" style="color:var(--blue)">9</span></div>
+      <div class="ins-row"><span class="k">Brand / Institute Awareness</span><div class="bar-wrap"><div class="bar" style="width:33%"></div></div><span class="v">4</span></div>
+      <div class="ins-row"><span class="k">Courses & Eligibility</span><div class="bar-wrap"><div class="bar" style="width:25%"></div></div><span class="v">3</span></div>
+      <div class="ins-row"><span class="k">Festival / Special Days</span><div class="bar-wrap"><div class="bar pink" style="width:17%"></div></div><span class="v" style="color:var(--pink)">2</span></div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;">Key Content Highlights</div>
+      <div style="font-size:12px;color:var(--muted2);line-height:1.9;">
+        ✦ <strong style="color:var(--orange)">Career posts</strong> dominate — targeting students exploring embryology as a profession.<br>
+        ✦ <strong style="color:var(--blue)">Science/concept posts</strong> in May establish educational authority.<br>
+        ✦ <strong style="color:var(--white)">2–3 posts per week</strong> cadence maintained for consistent engagement.<br>
+        ✦ <strong style="color:var(--green)">All posts</strong> include CTA with phone, email &amp; website.<br>
+        ✦ <strong style="color:var(--purple)">Myth vs Reality</strong> &amp; comparison posts generate higher engagement.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="rep-footer">
+  <div class="fl">Prepared by &nbsp;<strong>Digital Ocean Web</strong><br>
+  <span style="font-size:11px;color:var(--muted);">Digital Marketing &amp; Social Media Agency · graceembryology.com · April–May 2026</span></div>
+  <div class="fstamp">✦ 33 Posts · 6 Platforms · April–May 2026</div>
+</div>
+
+</div>
+</body>
+</html>
